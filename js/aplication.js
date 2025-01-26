@@ -60,3 +60,35 @@
     createParticles();
   });
 })();
+
+
+function previewImage(event) {
+  const file = event.target.files[0];
+  const previewContainer = document.querySelector('.image-preview');
+  const imgElement = document.getElementById('preview-img');
+  const removeBtn = document.getElementById('remove-img-btn');
+
+  // Показываем контейнер с изображением
+  previewContainer.classList.remove('hidden');
+
+  // Скрываем кнопку "Удалить изображение" по умолчанию
+  removeBtn.classList.remove('hidden');
+
+  // Создаем URL объекта для отображения изображения
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    imgElement.src = e.target.result; // Загружаем изображение в элемент
+  }
+
+  // Читаем файл как Data URL
+  reader.readAsDataURL(file);
+
+  // Обработчик для удаления изображения
+  removeBtn.onclick = function() {
+    imgElement.src = ''; // Очищаем источник изображения
+    previewContainer.classList.add('hidden'); // Прячем превью
+    removeBtn.classList.add('hidden'); // Скрываем кнопку удаления
+    document.querySelector('.file-input').value = ''; // Очищаем поле ввода файла
+  }
+}

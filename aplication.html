@@ -31,11 +31,26 @@
   <article>
     <div class="main-content-container">
       <div class="aplication-container">
-        <input type="text" class="aplication-name">
-        <input type="text" class="aplication-main-content">
-        <div class="aplication-img"></div>
+        <textarea class="aplication-name" placeholder="Введите заголовок заявки..."></textarea>
+        <textarea class="aplication-main-content" placeholder="Введите содержание..."></textarea>
+        <div class="aplication-img">
+          <div class="img-content">
+            <span class="img-placeholder">Импорт изображения</span>
+            <label class="upload-button">
+              <input type="file" accept="image/*" class="file-input" onchange="previewImage(event)" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="clip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" />
+              </svg>
+            </label>
+          </div>
+          <div class="image-preview hidden">
+            <!-- Здесь появится превью изображения -->
+            <img id="preview-img" src="" alt="Preview" />
+            <button id="remove-img-btn" class="remove-btn hidden">&times;</button>
+          </div>
+        </div>
+        <div class="go-btn">Отправить заявку</div>
       </div>
-      <div class="go-btn"></div>
     </div>
   </article>
 
