@@ -6,9 +6,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/aplication.css">
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
   <title>ЗАяВки</title>
 </head>
@@ -16,17 +20,24 @@
   <canvas id="particlesCanvas"></canvas>
 
   <header>
-    <div class="triger-block">
-      <h1 class="triger-text">ОТКРЫТЬ МЕНЮ</h1>
-      <div class="news-main-header">
-        <div class="header-container">
-          <a href="index.html" class="logo">KROVAN|website</a>
+    <div class="main-header-container">
+      <div class="content-container">
+        <a href="" class="logo">KROVAN|website</a>
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+          <i class="bx bx-menu" id="menu-icon"></i>
+          <i class="bx bx-x" id="close-icon"></i>
+        </label>
+        <nav class="header-content navbar">
           <a href="news.html" class="header-text news">ПОТОК РЕАЛЬНОСТИ</a>
-          <a href="profile.html" class="header-text brotherhood">ЛИЧНЫЙ КАБИНЕТ</a>
-        </div>
+          <a href="games.html" class="header-text games">АРХИВ ИГРОВОЙ ВСЕЛЕННОЙ</a>
+          <a href="#interesting" class="header-text more">УЗНАТЬ БОЛЬШЕ</a>
+          <a href="log.html" class="header-text brotherhood">ВСТУПИТЬ В СЕКТУ</a>
+        </nav>
       </div>
     </div>
   </header>
+
 
   <article>
     <div class="main-content-container">
