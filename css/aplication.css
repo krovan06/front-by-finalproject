@@ -115,7 +115,7 @@ html {
 }
 
 .logo{
- margin-left: 1vh ;
+ margin-left: calc(var(--index) * 1.9); ;
 }
 
 
@@ -155,7 +155,9 @@ html {
 }
 
 
-
+.navbar {
+  margin-right: calc(var(--index) * 1.9);
+}
 
 /* ФОРМА */
 .main-content-container {
