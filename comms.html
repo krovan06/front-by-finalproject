@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лента новостей</title>
+    <link rel="stylesheet" href="css/coms.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <div class="main-header-container">
+        <div class="content-container">
+            <a href="" class="logo">KROVAN|website</a>
+            <input type="checkbox" id="check">
+            <label for="check" class="icons">
+                <i class="bx bx-menu" id="menu-icon"></i>
+                <i class="bx bx-x" id="close-icon"></i>
+            </label>
+            <nav class="header-content navbar">
+                <a href="news.html" class="header-text news">ПОТОК РЕАЛЬНОСТИ</a>
+                <a href="games.html" class="header-text games">АРХИВ ИГРОВОЙ ВСЕЛЕННОЙ</a>
+                <a href="#interesting" class="header-text more">УЗНАТЬ БОЛЬШЕ</a>
+                <a href="log.html" class="header-text brotherhood">ВСТУПИТЬ В СЕКТУ</a>
+            </nav>
+        </div>
+    </div>
+</header>
+<canvas id="particlesCanvas"></canvas>
+<div class="container">
+    <h2>Комментарии</h2>
+    <div class="news-feed">
+        <div class="news-item">
+            <img src="image.jpg" alt="Новость" class="news-image">
+            <h3>Заголовок новости</h3>
+            <p>
+                Это описание новости, которое может быть очень длинным. Мы добавили стили для того, чтобы текст хорошо вписывался в дизайн, был читаемым и удобным для пользователей. Если текст слишком длинный, то появится прокрутка.
+            </p>
+            <hr>
+
+            <h2>Комментарии</h2>
+
+            <div class="comment">
+                <p><strong>Иван Иванов</strong>:</p>
+                <p>Очень интересная новость!</p>
+                <p><small>Создан: 27.01.2025 15:30</small></p>
+            </div>
+
+            <div class="comment">
+                <p><strong>Мария Петрова</strong>:</p>
+                <p>Согласна с этим мнением!</p>
+                <p><small>Создан: 27.01.2025 16:00</small></p>
+            </div>
+
+            <p>Нет комментариев.</p>
+
+            <hr>
+
+            <h3>Оставить комментарий</h3>
+            <form method="post">
+                <input type="hidden" name="request_id" value="1">
+                <textarea name="comment" placeholder="Ваш комментарий" rows="4" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+
+            <p><small>Опубликовано: 27.01.2025 14:00</small></p>
+        </div>
+    </div>
+</div>
+<script src="js/aplication.js"></script>
+</body>
+</html>
