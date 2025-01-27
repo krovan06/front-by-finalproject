@@ -66,8 +66,8 @@
 function isFullyVisible(element) {
   const rect = element.getBoundingClientRect();
   return (
-    rect.top >= 0 && // Верхняя граница выше или на уровне верхней границы экрана
-    rect.bottom <= window.innerHeight // Нижняя граница ниже или на уровне нижней границы экрана
+      rect.top >= 0 && // Верхняя граница выше или на уровне верхней границы экрана
+      rect.bottom <= window.innerHeight // Нижняя граница ниже или на уровне нижней границы экрана
   );
 }
 
@@ -82,3 +82,4 @@ function CheckContentBlock() {
 window.addEventListener('scroll', () => {
   CheckContentBlock();
 });
+

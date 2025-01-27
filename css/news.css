@@ -1,12 +1,183 @@
 body {
-  background-color: rgba(0, 0, 0, 0.85);
+  font-family: 'Handjet', serif;
+  font-style: normal;
+  font-size: 20px ;
+  font-variation-settings: "ELGR" 1,
+  "ELSH" 5.2;
+  color: whitesmoke;
   margin: 0;
+  padding: 0;
+  background-color: rgb(23, 23, 23);
+}
+
+
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* ШАПКА */
+html {
+  scroll-behavior: smooth;
+}
+#close-icon {
+  display: none;
+}
+:root {
+  --index: 1vh + 1vw;
+}
+
+/* Если меню открыто (чекбокс активен), меняем иконки */
+#check:checked ~ .icons #menu-icon {
+  display: none;
+}
+#check:checked ~ .icons #close-icon {
+  display: block;
+}
+#check {
+  display: none;
+}
+.icons {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+
+}
+.navbar a {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+}
+
+/* Применение шрифта ко всем элементам */
+/*ШАПКА*/
+.main-header-container {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  backdrop-filter: blur(2px);
+  background: rgba(102, 102, 102, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.content-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+.logo, .header-text {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  transition: 0.5s;
+}
+.header-text {
+  font-size: 2rem;
+  transition: 0.3s;
+}
+.news:hover, .games:hover, .more:hover, .brotherhood:hover {
+  font-size: calc(var(--index) * .95);
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+.news:hover {
+  color: rgb(123, 102, 40);
+}
+.games:hover {
+  color: rgb(40, 59, 123);
+}
+.more:hover {
+  color: rgb(55, 40, 123);
+}
+.brotherhood:hover {
+  color: rgb(123, 40, 40);
+}
+.logo:hover {
+  color: rgb(123, 40, 40);
+  cursor: pointer;
+}
+
+.logo{
+  margin-left: calc(var(--index) * 1.9); ;
+}
+
+
+@media (max-width: 1182px) {
+
+  .navbar {
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    width: 100%;
+    height: 0;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    transition: height 0.3s ease, padding 0.3s ease;
+  }
+  .icons {
+    display: inline-flex;
+  }
+  #check:checked ~ .icons #menu-icon {
+    display: none;
+  }
+  #check:checked ~ .icons #close-icon {
+    display: block;
+  }
+  #check:checked ~ .navbar {
+    height: auto;
+    padding: 1rem;
+  }
+  .navbar a {
+    text-align: center;
+    padding: 0.2rem;
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+.navbar {
+  margin-right: calc(var(--index) * 1.9);
+}
+@media (min-width: 1182px) {
+  .navbar {
+    flex-direction: row;
+    height: auto;
+    background: none;
+    position: static;
+  }
+  .navbar a {
+    font-size: calc(var(--index) * .85);
+    color: #fff;
+    padding: 0 0.5rem;
+  }
+  .icons {
+    display: none;
+  }
 }
 
 article {
-  
+
   width: 100%;
-  height: 60vh;
+  height: 30vh;
 
   display: flex;
   align-items: center;
@@ -27,82 +198,25 @@ main {
 /*ТЕКСТ*/
 
 .news-text {
-  font-family: Rubik Mono One;
+  font-family: Handjet, serif;
 }
 
 /*ПРИВЕТ*/
 
 .NEWS {
   color: rgb(240, 236, 219);
-  font-family: Rubik Mono One;
+  font-family: Handjet, serif;
+  font-weight: bold;
   font-size: 110px;
 }
 
-/*ШАПКА*/
 
-.news-main-header {
-  width: 100%;
-  height: 10vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-container {
-  width: 90%;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px
-}
-
-.header-text {
-  text-decoration: none;
-  color: rgb(240, 236, 219);
-  transition: 0.5s;
-  font-family: Rubik Mono One;
-  font-size: 25px;
-}
-
-.logo {
-  text-decoration: none;
-  color: rgb(240, 236, 219);
-  font-family: Rubik Mono One;
-  font-size: 30px;
-  transition: 0.5s;
-}
-
-
-.logo:hover {
-  color: rgb(143, 65, 65);;
-}
-
-.news:hover {
-  color: rgb(124, 110, 20);
-  font-size: 26px;
-  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.9);
-}
-
-.games:hover {
-  color: rgb(75, 119, 150);
-  font-size: 26px;
-  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.9);
-}
-
-.brotherhood:hover {
-  color: rgb(90, 67, 132);
-  font-size: 26px;
-  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.9);
-}
 
 /* ДОСКА ОБЪЯВЛЕНИЙ */
 
 .news-main-container {
   width: 90%;
-  height: 100%;
+  height: 50%;
 
   background-color: #0e0f12;
   border-top-left-radius: 75px;
@@ -127,23 +241,55 @@ main {
   justify-content: center;
 }
 
-.test-block {
-  width: 800px;
-  height: 916px;
-  /*width: 50%;*/
-  /*height: 40%;*/
-
+/* СТАТЬЯ */
+.test-block.animated-block {
+  background-color: #1e1e1e; /* Темный фон */
+  border: 2px solid #ffffff; /* Белая обводка */
+  border-radius: 46px; /* Закругленные углы */
+  padding: 20px; /* Отступы для текста */
+  box-shadow: inset 0px 0px 82px 3px rgba(0, 0, 0, 0.42);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  flex-direction: column;
-
-  border-radius: 46px;
-  box-shadow: inset 0px 0px 82px 3px rgba(0, 0, 0, 0.42);
-  background: rgb(206, 203, 190);
-
-  opacity: 0;
+  width: 60%; /* Ширина статьи */
+  height: 550px;
 }
+
+/* Текст внутри статьи */
+.test-block.animated-block .test-text {
+  width: 90%; /* Отступы у текста */
+  padding-bottom: 2vh;
+  text-align: justify; /* Выравнивание по ширине */
+  font-family: 'Handjet', serif; /* Используемый шрифт */
+  font-size: 1rem; /* Размер текста */
+  color: whitesmoke; /* Цвет текста */
+}
+
+/* КНОПКА */
+.test-block.animated-block .comment-button-container {
+  margin-bottom: 20px; /* Отступ от нижней границы статьи */
+  width: 90%; /* Кнопка занимает 90% ширины статьи */
+}
+
+.test-block.animated-block .comment-button-container .comment-button {
+  font-family: 'Handjet', serif;
+  font-size: 1.2rem;
+  background-color: #333333; /* Темный фон кнопки */
+  color: whitesmoke; /* Белый текст кнопки */
+  border: 2px solid #ffffff; /* Белая обводка */
+  border-radius: 25px; /* Закругленные углы кнопки */
+  padding: 10px 0; /* Отступы */
+  width: 100%; /* Растянуть кнопку */
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.test-block.animated-block .button-container button:hover {
+  background-color: whitesmoke; /* Меняется на светлый фон при наведении */
+  color: #333333; /* Темный текст при наведении */
+}
+
 
 .test-up-block {
   width: 100%;
@@ -170,13 +316,6 @@ main {
   width: 100%;
   height: 40%;
   text-align: center;
-}
-
-/*ШРИФТЫ*/
-.rubik-mono-one-regular {
-  font-family: "Rubik Mono One", serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 /*ЭКСПЕРЕМЕНТ*/
@@ -218,4 +357,68 @@ canvas {
   animation-name: show-shadow-UPdown;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+}
+
+
+@media (max-width: 768px) {
+  .NEWS {
+    font-size: 8vw; /* Увеличиваем шрифт для мобильных устройств */
+  }
+  /* Адаптив для статьи */
+  .test-block.animated-block {
+    width: 60%;
+    height: 30%;
+    padding: 20px;
+  }
+
+  .test-block.animated-block .test-text {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+  .test-block.animated-block {
+    width: 80%; /* Увеличиваем ширину статьи */
+    padding: 15px;
+  }
+
+  .test-block.animated-block .test-text {
+    font-size: 1rem; /* Уменьшаем текст */
+  }
+}
+
+@media (max-width: 768px) {
+  .test-block.animated-block {
+    width: 90%; /* Почти полная ширина экрана */
+    padding: 10px;
+  }
+
+  .test-block.animated-block .test-text {
+    font-size: 0.9rem; /* Ещё меньше текст */
+  }
+}
+
+@media (max-width: 480px) {
+  .test-block.animated-block {
+    border-radius: 20px; /* Меньше закругление углов */
+  }
+  .test-up-block {
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .test-block.animated-block .test-text {
+    font-size: 0.7rem;
+  }
+
+  .test-block.animated-block .comment-button-container .comment-button {
+    font-size: 1rem; /* Уменьшаем размер кнопки */
+  }
 }
