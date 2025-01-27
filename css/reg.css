@@ -53,6 +53,7 @@
 
 .logreg-question {
   color: aliceblue;
+
 }
 
 .main-reg-container {
@@ -106,39 +107,44 @@
 
 .logreg-btn {
   width: 80%;
-  height: 60px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: 0.4s;
 }
 
 .log-btn {
-  width: 80%;
-  height: 50px;
-
+  width: 100%;
+  height: 40px;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   box-sizing: border-box;
   border: 1px solid rgb(174, 174, 174);
-  border-radius: 5px;
+  border-radius: 9px;
   background: rgba(255, 255, 255, 0.552);
-
-  color: rgb(0, 0, 0);
-  font-size: 25px;
-
   transition: 0.4s;
 }
 
-.logreg-btn :hover {
-  color: aliceblue;
+.log-btn:hover {
   background: rgba(42, 42, 42, 0.552);
 }
+
+.btn-link {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: rgb(0, 0, 0); /* Цвет текста */
+  font-size: 25px;
+  display: inline-block; /* Чтобы можно было регулировать отступы */
+  width: 100%;
+  text-align: center;
+}
+
+.log-btn:hover .btn-link {
+  color: aliceblue; /* Меняем цвет текста при наведении */
+}
+
 
 .reg-link {
   text-decoration: none;
@@ -207,4 +213,50 @@ body {
   color: whitesmoke;
   margin: 0;
   padding: 0;
+}
+
+
+/* Стили для модального окна */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  color: #0e0f12;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.close {
+  color: #000000;
+  float: right;
+  font-size: 48px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 340px) {
+  .logreg-question {
+    font-size: 4vh;
+  }
+
 }
