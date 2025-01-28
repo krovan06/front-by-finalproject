@@ -15,20 +15,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const agreementCheckbox = document.getElementById('agreement-checkbox');
   const checkboxError = document.getElementById('checkbox-error');
 
+
   // Устанавливаем маску для телефона
   $(phoneInput).inputmask('+7 (999) 999-99-99');
 
-  // Функция для добавления эффекта тряски
-  const shakeElement = (element) => {
-    element.classList.add('shake');
+  const shakeElement = (element, isValid) => {
+    element.classList.add('shake'); // Добавляем эффект тряски
+
+    if (!isValid) {
+      element.style.border = '2px solid red'; // Красный бордер при ошибке
+    } else {
+      element.style.border = '2px solid rgba(255, 255, 255, 0.3)'; // Возвращаем стандартный стиль
+    }
+
     setTimeout(() => {
-      element.classList.remove('shake');
+      element.classList.remove('shake'); // Убираем эффект тряски
     }, 300); // Длительность анимации
   };
+
+// Добавляем обработчик ввода, чтобы сразу сбрасывать ошибку при исправлении
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => {
+      input.style.border = '2px solid rgba(255, 255, 255, 0.3)'; // Сбрасываем бордер при вводе
+    });
+  });
+
+
 
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     let valid = true;
+
+
 
     // Проверка логина
     if (!loginInput.value.trim()) {
@@ -91,11 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Проверка совпадения паролей
+
     if (password2Input.value !== passwordInput.value) {
       password2Error.textContent = 'Пароли должны совпадать.';
       password2Error.style.display = 'block';
       shakeElement(password2Input);
       valid = false;
+    } else if (!password2Input.value.trim()) {
+      password2Error.style.display = 'block';
+      shakeElement(password2Input);
+      valid = false;
+      password2Error.style.display = 'none';
     } else {
       password2Error.style.display = 'none';
     }
@@ -111,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (valid) {
-      alert('Форма успешно отправлена!');
+      window.location.href = 'profile.html';
     }
   });
 });
