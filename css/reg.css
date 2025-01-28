@@ -1,6 +1,36 @@
 ::placeholder {
   font-family: 'Handjet', serif;
 }
+.agreement-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px; /* Расстояние между чекбоксом и текстом */
+}
+
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-10px);
+  }
+  40%, 80% {
+    transform: translateX(10px);
+  }
+}
 
 .eye-container {
   margin-top: 5%;
@@ -81,7 +111,7 @@
   background: rgba(0, 0, 0, 0.37);
 }
 
-.log-line {
+.log-line, .optional-mail {
   height: 10%;
   width: 80%;
   box-sizing: border-box;
@@ -171,20 +201,9 @@
   text-align: center;
 }
 
-.optional-mail {
-  height: 20%;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.71);
-
-  color: aliceblue;
-  font-size: 25px;
-}
 
 .optional-number {
-  height: 20%;
+  height: 30%;
   width: 100%;
   box-sizing: border-box;
   border: 1px solid rgb(255, 255, 255);
