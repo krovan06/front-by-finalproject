@@ -194,7 +194,15 @@ main {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  main {
+    margin-top: 7vh;
+  }
+  .test-up-block {
+    gap: 10px;
+  }
 
+}
 /*ТЕКСТ*/
 
 .news-text {
@@ -242,28 +250,59 @@ main {
 }
 
 /* СТАТЬЯ */
+/* Установка минимальной высоты для блока с текстом */
 .test-block.animated-block {
-  background-color: #1e1e1e; /* Темный фон */
-  border: 2px solid #ffffff; /* Белая обводка */
-  border-radius: 46px; /* Закругленные углы */
-  padding: 20px; /* Отступы для текста */
+  background-color: #1e1e1e;
+  border: 2px solid #ffffff;
+  border-radius: 46px;
+  padding: 20px;
   box-shadow: inset 0px 0px 82px 3px rgba(0, 0, 0, 0.42);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 60%; /* Ширина статьи */
-  height: 550px;
+  width: 60%;
+  height: auto;
+  min-height: 300px; /* Минимальная высота блока */
+  max-height: 500px;
 }
 
-/* Текст внутри статьи */
+/* Отступ для кнопки, чтобы она не наезжала на текст */
+.comment-button-container {
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 90%;
+  flex-shrink: 0; /* Запрещаем сжимать контейнер кнопки */
+}
+
+/* Убираем слишком большие отступы */
 .test-block.animated-block .test-text {
-  width: 90%; /* Отступы у текста */
-  padding-bottom: 2vh;
-  text-align: justify; /* Выравнивание по ширине */
-  font-family: 'Handjet', serif; /* Используемый шрифт */
-  font-size: 1rem; /* Размер текста */
-  color: whitesmoke; /* Цвет текста */
+  padding-bottom: 2vh!important;
+  padding-top: 2vh;
+  text-align: justify;
+  font-family: 'Handjet', serif;
+  font-size: 1rem;
+  color: whitesmoke;
+  overflow: auto; /* Обеспечивает прокрутку текста, если он не помещается */
+  flex-grow: 1; /* Разрешаем растягивание текста, если есть место */
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  .test-block.animated-block {
+    width: 90%; /* Почти полная ширина экрана */
+    padding: 10px;
+    min-height: 300px; /* Минимальная высота для мобильных */
+  }
+
+  .test-block.animated-block .test-text {
+    font-size: 1.2rem;
+  }
+
+  .test-block.animated-block .comment-button-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
 }
 
 /* КНОПКА */
@@ -292,10 +331,10 @@ main {
 
 
 .test-up-block {
-  width: 100%;
+  width: 80%;
   height: 10%;
   flex-direction: row;
-  gap: 100px;
+  gap: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,7 +344,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width:  100%;
+  width:  90%;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   height: 50%;
 }
 
@@ -313,11 +354,52 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   height: 40%;
   text-align: center;
 }
 
+.test-author-name-1{
+  font-size: 10px;
+}
+
+.test-author-name {
+  overflow: hidden; /* Скрываем текст, выходящий за пределы блока */
+  text-overflow: ellipsis; /* Добавляем троеточие, если текст обрезается */
+  white-space: nowrap; /* Запрещаем перенос текста */
+  position: relative;
+  display: block;
+  word-wrap: break-word;
+  font-size: 10px;
+  scrollbar-color: #919191 transparent; /* Цвет */
+}
+
+.test-author-name::-webkit-scrollbar {
+  height: 3px; /* Высота горизонтального скроллбара */
+}
+
+.test-author-name::-webkit-scrollbar-track {
+  background: transparent; /* Цвет трека (фона) */
+}
+
+.test-author-name::-webkit-scrollbar-thumb {
+  background-color: #adadad; /* Цвет "ползунка" */
+  border-radius: 10px; /* Закругления */
+  border: 2px solid transparent; /* Прозрачная рамка для эффекта */
+}
+
+.test-author-name::-webkit-scrollbar-thumb:hover {
+  background-color: #8a8a80; /* Цвет "ползунка" при наведении */
+}
+.test-author-name:hover {
+  overflow: auto; /* При наведении включаем прокрутку */
+}
+
+@media (max-width: 1024px) {
+  .test-author-name {
+    font-size: 8px;
+  }
+  }
 /*ЭКСПЕРЕМЕНТ*/
 
 canvas {
@@ -394,6 +476,11 @@ canvas {
     width: 90%; /* Почти полная ширина экрана */
     padding: 10px;
   }
+  main {
+    margin-top: 0;
+
+  }
+
 
   .test-block.animated-block .test-text {
     font-size: 0.9rem; /* Ещё меньше текст */
@@ -402,14 +489,28 @@ canvas {
 
 @media (max-width: 480px) {
   .test-block.animated-block {
-    border-radius: 20px; /* Меньше закругление углов */
+    border-radius: 30px; /* Меньше закругление углов */
+  }
+  main {
+    margin-top: 0;
+  }
+  .news-main-content {
+    margin-top: 20px;
+  }
+  .news-main-container {
+    border-radius: 40px;
+  }
+  article {
+    height: 100px;
   }
   .test-up-block {
-    width: 100%;
+    width: 80%;
     height: 10%;
     flex-direction: row;
-    gap: 50px;
+    font-size: 8px;
+    gap: 30px;
     display: flex;
+    margin-top: 3vh;
     align-items: center;
     justify-content: center;
   }
